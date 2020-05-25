@@ -64,11 +64,33 @@ $(function(){
 		);
 	});
 
-});
  		
- 		function locationGo(link){
- 			window.open(link, '', 'width=500, height=500');
- 		}
+	 	function locationGo(link){
+	 			window.open(link, '', 'width=500, height=500');
+	 		}
+	 		
+	 		$('#btnJSP').click(function(){
+	 			$.get(
+	 					'./common/02PrintToday.jsp'
+	 					,
+	 					{'msg' : $(this).text(),'varStr : jQeury좋아요'}
+	 					,
+	 					function(data){	
+	 						alert(data); 	
+	 						$('#jspDisplay').html(data);
+	 					}
+	 				);	
+	 		 	});
+});
+	 		/*
+	 		파라미터 조립하기
+	 		: $.get()혹은 S.post()를 통해 서버로 요청을 하는 경우
+	 		파라미터를 전송할때는 항상 JSON으로 조립해야 한다.
+	 		하지만 폼값이 많아서 조립이 힘든 경우에는 serialize()를 
+	 		사용한다.
+	 		
+	 		$('폼이름').rerialize
+	 		*/
  		
 </script>
 </head>
